@@ -7,9 +7,9 @@
 
 'use strict';
 
-var _             = require('lodash');
-var util          = require('util');
-var EventEmitter  = require('events').EventEmitter;
+const _             = require('lodash');
+const util          = require('util');
+const EventEmitter  = require('events').EventEmitter;
 
 /**
  *
