@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>g5-knockout-dot.js</title>
+
+        <link rel="stylesheet" href="src/static/bundle.css" />
+    </head>
+    <body>
+
+        <section id="component--linescore" data-bind="template: { name: 'main-template' }"></section>
+
+        <!-- bundled JS -->
+        <script src="src/static/bundle.js"></script>
+
+        <!-- main template -->
+        <template id="main-template">
+
+            <section 
+                class="{{=it.$data.g5knockout_attr.class()}}" 
+                data-g5knockout-instance="{{=it.$data.g5knockout_attr.instance()}}" 
+                data-g5knockout-visible="{{=it.$data.g5knockout_attr.visible()}}" 
+                data-g5knockout-bound="{{=it.$data.g5knockout_attr.bound()}}">
+
+                {{? it.$data.collection() }}
+
+                    <section class="{{=it.$data.collection().subject}}">
+                        <dl>
+                            <dt><strong>Home Team</strong></dt>
+                            <dd>{{=it.$data.collection().data.game.home_team_name}}</dd>
+
+                            <dt><strong>Location</strong></dt>
+                            <dd>{{=it.$data.collection().data.game.location}}</dd>
+
+                            <dt><strong>Game Date</strong></dt>
+                            <dd>{{=it.$data.collection().data.game.original_date}}</dd>
+
+                            <dt><strong>Game Time</strong></dt>
+                            <dd>{{=it.$data.collection().data.game.time}}</dd>
+                        </dl>
+                    </section>
+
+                    <article>
+                        <small>{{=it.$data.collection().copyright}}</small>
+                    </article>
+
+                {{?}}
+
+            </section>
+
+        </template>
+
+    </body>
+</html>

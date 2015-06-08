@@ -1,0 +1,17 @@
+/**
+ *
+ * file: g5-knockout.css
+ * description: core styling for g5-knockout
+ *
+ */
+
+.g5-knockout-app {
+    display: none;
+    visibility: hidden;
+}
+
+[data-g5knockout-visible] {
+    display: block;
+    visibility: visible;
+}
+
