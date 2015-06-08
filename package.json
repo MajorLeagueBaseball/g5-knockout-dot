@@ -6,10 +6,10 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gbabula/g5-knockout-dot"
+    "url": "https://github.com/MajorLeagueBaseball/g5-knockout-dot"
   },
   "bugs": {
-    "url": "https://github.com/gbabula/g5-knockout-dot/issues"
+    "url": "https://github.com/MajorLeagueBaseball/g5-knockout-dot/issues"
   },
   "keywords": [
     "knockout",
