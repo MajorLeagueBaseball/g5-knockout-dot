@@ -30,7 +30,7 @@ npm run start-dev
 npm run build
 ```
 
-###Module Usage
+###Component Setup
 
 ```js
 
@@ -40,8 +40,24 @@ let linescoreComponent = g5KnockoutDot({
     interval: 80000,
     path: '/src/data/linescore.json'
 });
+```
 
-linescoreComponent.init();
+###Events
+
+```js
+
+    linescoreComponent.on('ready', function(constructor) {
+
+        console.log('component model and viewModel have been initiated', constructor);
+
+    });
+```
+
+###Methods
+
+```js
+
+linescoreComponent.init(); // initiates component
 ```
 
 ###Style Guide / Rules
