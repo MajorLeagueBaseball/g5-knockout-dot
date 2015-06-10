@@ -47,11 +47,11 @@ let linescoreComponent = g5KnockoutDot({
 
 ```js
 
-    linescoreComponent.on('ready', function(constructor) {
+linescoreComponent.on('ready', function(obj) {
 
-        console.log('component model and viewModel have been initiated', constructor);
+    // console.log('component model and viewModel have been initiated', obj);
 
-    });
+});
 ```
 
 ###Methods
