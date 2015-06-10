@@ -140,6 +140,8 @@ MasterViewModel.prototype.refresh = function(data) {
 
     data = data || {};
 
+    util.log('g5-knockout : refreshing data on viewModel');
+
     if (this.koBound) {
         this.$data.collection(data);
     }

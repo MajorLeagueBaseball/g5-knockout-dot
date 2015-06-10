@@ -35,7 +35,7 @@ function onLoad() {
     let linescoreComponent = g5KnockoutDot({
         container: document.getElementById('component--linescore'),
         css: 'linescore linescore--game',
-        interval: 80000,
+        interval: 15000,
         path: '/src/data/linescore.json'
     });
 

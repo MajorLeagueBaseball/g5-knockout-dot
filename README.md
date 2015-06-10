@@ -38,6 +38,7 @@ let linescoreComponent = g5KnockoutDot({
     container: document.getElementById('component--linescore'),
     css: 'linescore linescore--game',
     interval: 80000,
+    enablePolling: false,
     path: '/src/data/linescore.json'
 });
 ```
