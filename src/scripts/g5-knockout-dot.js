@@ -14,6 +14,7 @@ const util                = require('util');
 const MasterModel         = require('./model/master').MasterModel;
 const MasterViewModel     = require('./viewModel/master').MasterViewModel;
 const KOTemplateEngine    = require('./util/KOTemplateEngine');
+const EventEmitter        = require('events').EventEmitter;
 const EventTower          = require('./events/master').EventTower;
 
 /**
@@ -38,9 +39,13 @@ function G5KnockoutDot(opts) {
 
     this.model = MasterModel(this.opts);
     this.viewModel = MasterViewModel(this.opts);
-    this.eventTower = EventTower(this.model, this.viewModel);
+    this.eventTower = EventTower(this);
+
+    EventEmitter.call(this);
 
 }
+
+util.inherits(G5KnockoutDot, EventEmitter);
 
 /**
  *
@@ -56,6 +61,8 @@ G5KnockoutDot.prototype.init = function() {
 
     ko.setTemplateEngine(this.dotTemplateEngine);
     ko.applyBindings(this.viewModel, this.container);
+
+    this.emit('ready', this);
 
 };
 

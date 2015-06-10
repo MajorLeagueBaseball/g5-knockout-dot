@@ -2,6 +2,7 @@
  *
  * @module events/master
  * @author Greg Babula
+ * @description event communication hub, mediates events between master, model, and viewModel
  *
  */
 
@@ -28,26 +29,32 @@ function hasEventEmitter(obj) {
 /**
  *
  * @constructor EventTower
- * @param {Object} model
- * @param {Object} viewModel
- * @description mediates events between model and viewModel
+ * @param {Object} master
+ * @description mediates events between master, model and viewModel
  *
  */
-function EventTower(model, viewModel) {
+function EventTower(master) {
 
     if (!(this instanceof EventTower)) {
-        return new EventTower(model, viewModel);
+        return new EventTower(master);
     }
 
-    this.model = model || {};
-    this.viewModel = viewModel || {};
+    this.master = master;
+    this.model = master && master.model || {};
+    this.viewModel = master && master.viewModel || {};
 
     //
     // ensure all targets have an instance of
     // EventEmitter before proceeding to attach events
     //
-    if (hasEventEmitter(this.model) && hasEventEmitter(this.viewModel)) {
+    if (hasEventEmitter(this.master) && hasEventEmitter(this.model) && hasEventEmitter(this.viewModel)) {
+
         this.attachEvents();
+
+    } else {
+
+        throw Error('EventEmitter is required on all main Constructors');
+
     }
 
 }
@@ -65,7 +72,7 @@ EventTower.prototype.attachEvents = function() {
     let _model = this.model;
     let _viewModel = this.viewModel;
 
-    util.log('g5-knockout : add events');
+    util.log('g5-knockout : attach events');
 
     /**
      *
@@ -75,7 +82,7 @@ EventTower.prototype.attachEvents = function() {
      */
     _model.on('data', function(data) {
 
-        _viewModel.emit('data-refresh', data);
+        _viewModel.emit('data', data);
 
     });
 
@@ -89,6 +96,8 @@ EventTower.prototype.attachEvents = function() {
 
         util.log('g5-knockout : error fetching model data :', err);
 
+        _viewModel.emit('data-error', err);
+
     });
 
     /**
@@ -97,7 +106,7 @@ EventTower.prototype.attachEvents = function() {
      * @param {Object} data
      *
      */
-    _viewModel.on('data-refresh', function(data) {
+    _viewModel.on('data', function(data) {
 
         _viewModel.refresh(data);
 
