@@ -1,25 +1,40 @@
 {
     "indent": 4,
     "plusplus": false,
+
     "eqeqeq": true,
     "smarttabs": true,
     "curly": false,
     "forin": false,
     "latedef": false,
-    "newcap": true,
+    "newcap": false,
     "strict": true,
     "trailing": true,
     "noempty": true,
+
     "asi": false,
     "boss": false,
     "debug": true,
     "evil": false,
-    "globalstrict": false,
+    "globalstrict": true,
     "laxbreak": false,
     "laxcomma": false,
     "onecase": false,
     "proto": false,
     "smarttabs": false,
     "supernew": false,
-    "esnext": true
+
+    "browser": true,
+    "devel": true,
+    "jquery": false,
+
+    "onevar": false,
+    "esnext": true,
+    "browserify": true,
+
+    "predef": [
+        "require",
+        "define",
+        "notify"
+    ]
 }
