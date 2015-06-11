@@ -52,6 +52,18 @@ linescoreComponent.on('ready', function(obj) {
     // console.log('component model and viewModel have been initiated', obj);
 
 });
+
+linescoreComponent.on('data', function(data) {
+
+    // console.log('component data from model', data);
+
+});
+
+linescoreComponent.on('data-error', function(err) {
+
+    // console.log('component model data error', err);
+
+});
 ```
 
 ###Methods

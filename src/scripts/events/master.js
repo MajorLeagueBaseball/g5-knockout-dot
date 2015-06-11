@@ -82,6 +82,7 @@ EventTower.prototype.attachEvents = function() {
      */
     _model.on('data', function(data) {
 
+        _master.emit('data', data);
         _viewModel.emit('data', data);
 
     });
@@ -96,6 +97,7 @@ EventTower.prototype.attachEvents = function() {
 
         util.log('g5-knockout : error fetching model data :', err);
 
+        _master.emit('data-error', err);
         _viewModel.emit('data-error', err);
 
     });
