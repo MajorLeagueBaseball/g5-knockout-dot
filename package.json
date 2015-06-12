@@ -1,7 +1,7 @@
 {
   "name": "g5-knockout-dot",
-  "version": "0.1.0",
-  "description": "component base with KnockoutJS and doT templating",
+  "version": "0.1.1",
+  "description": "Component base with KnockoutJS and doT templating",
   "author": "Greg Babula",
   "license": "ISC",
   "repository": {
@@ -36,10 +36,10 @@
     "build": "npm run build-js && npm run build-css",
     "watch-js": "watchify -t brfs src/scripts/index.js -o src/static/bundle.js -dv",
     "watch-css": "catw src/styles/*.css -o src/static/bundle.css -v",
-    "watch": "npm run watch-js & npm run watch-css"
+    "watch": "npm run watch-js & npm run watch-css",
+    "test": "tape test/*.js"
   },
   "dependencies": {
-    "brfs": "^1.2.0",
     "browserify": "^8.1.1",
     "catw": "^0.2.0",
     "concat-stream": "^1.4.7",
@@ -54,9 +54,13 @@
     "readable-stream": "^1.0.33",
     "shallow-copy": "0.0.1",
     "static-eval": "^0.2.3",
+    "xtend": "^4.0.0"
+  },
+  "devDependencies": {
+    "tape": "^4.0.0",
+    "babelify": "^6.1.2",
+    "brfs": "^1.2.0",
     "uglify-js": "^2.4.16",
-    "watchify": "^2.2.1",
-    "xtend": "^4.0.0",
-    "babelify": "^6.1.2"
+    "watchify": "^2.2.1"
   }
 }
