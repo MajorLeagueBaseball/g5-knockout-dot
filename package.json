@@ -37,7 +37,7 @@
     "watch-js": "watchify -t brfs src/scripts/index.js -o src/static/bundle.js -dv",
     "watch-css": "catw src/styles/*.css -o src/static/bundle.css -v",
     "watch": "npm run watch-js & npm run watch-css",
-    "test": "tape test/*.js"
+    "test": "babel-tape-runner test/*.js"
   },
   "dependencies": {
     "browserify": "^8.1.1",
@@ -57,9 +57,11 @@
     "xtend": "^4.0.0"
   },
   "devDependencies": {
-    "tape": "^4.0.0",
+    "babel": "^5.5.6",
+    "babel-tape-runner": "^1.1.0",
     "babelify": "^6.1.2",
     "brfs": "^1.2.0",
+    "tape": "^4.0.0",
     "uglify-js": "^2.4.16",
     "watchify": "^2.2.1"
   }
