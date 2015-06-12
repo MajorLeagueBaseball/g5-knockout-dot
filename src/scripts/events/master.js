@@ -53,7 +53,9 @@ function EventTower(master) {
 
     } else {
 
-        throw Error('EventEmitter is required on all main Constructors');
+        if (this.master) {
+            throw Error('EventEmitter is required on all main Constructors');
+        }
 
     }
 
